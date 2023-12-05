@@ -9,7 +9,9 @@ bun install
 To run:
 
 ```bash
-bun run index.ts
-```
+# Run all days
+bun test
 
-This project was created using `bun init` in bun v[5:0]u8@104c11c56. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+# Run a specific day
+bun test src/days/01
+```
