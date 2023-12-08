@@ -1,3 +1,3 @@
 import { always, pipe, tap } from 'rambda';
 
-export default pipe(tap(console.log), always(6));
+export default pipe(tap(console.log), always(420));

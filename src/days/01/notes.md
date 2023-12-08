@@ -1,4 +1,4 @@
-Part one of this was relatively straight-forward, however part 2 added some complications.
+Part 1 of this was relatively straight-forward, however part 2 added some complications.
 
 My first solution to part 2 would replace all occurences of spelled out numbers (one, two, three, etc) with the numeric version using something like this.
 

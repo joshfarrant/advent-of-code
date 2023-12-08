@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 import { readFile } from '@/utils';
 
 import part1FirstSolution from './solutions/01/first';
-import part1FunctionalSolution from './solutions/01/functional';
+import part1FunctionalSolution from './solutions/01/solution';
 import part2FirstSolution from './solutions/02/solution';
 
 /* prettier-ignore */
