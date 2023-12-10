@@ -33,14 +33,11 @@ await Promise.all(
       file: `${puzzleNumber}.json`,
     });
 
-    const [description, notes, input, part1Solution, part2Solution] =
-      await Promise.all([
-        readFile(`./days/${directory}/description.md`),
-        readFile(`./days/${directory}/notes.md`),
-        readFile(`./days/${directory}/input.txt`),
-        readFile(`./days/${directory}/solutions/01/solution.ts`),
-        readFile(`./days/${directory}/solutions/02/solution.ts`),
-      ]);
+    const [notes, part1Solution, part2Solution] = await Promise.all([
+      readFile(`./days/${directory}/notes.md`),
+      readFile(`./days/${directory}/solutions/01/solution.ts`),
+      readFile(`./days/${directory}/solutions/02/solution.ts`),
+    ]);
 
     const data = {
       meta: {
@@ -49,8 +46,6 @@ await Promise.all(
       puzzle: {
         day: puzzleNumber,
         title: meta.title,
-        description,
-        input,
       },
       notes,
       solutions: {
