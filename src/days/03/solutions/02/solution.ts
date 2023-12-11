@@ -1,16 +1,4 @@
-import {
-  always,
-  clamp,
-  filter,
-  flatten,
-  map,
-  nth,
-  pipe,
-  reduce,
-  split,
-  sum,
-  tap,
-} from 'rambda';
+import { clamp, filter, map, pipe, reduce, split, sum } from 'rambda';
 
 type LocatedNumber = [Row: number, Column: number, Number: number];
 
