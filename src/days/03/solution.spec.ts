@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 import { readFile } from '@/utils';
 
 import part1FirstSolution from './solutions/01/solution';
-// import part2FirstSolution from './solutions/02/solution';
+import part2FirstSolution from './solutions/02/solution';
 
 /* prettier-ignore */
 const actualInput = await import.meta
@@ -14,22 +14,22 @@ const exampleInput = await import.meta
 
 describe('day 03', () => {
   describe('part 01', () => {
-    test.only('example input', () => {
+    test('example input', () => {
       expect(part1FirstSolution(exampleInput)).toBe(4361);
     });
 
     test('real input', () => {
-      expect(part1FirstSolution(actualInput)).toBe(0);
+      expect(part1FirstSolution(actualInput)).toBe(551094);
     });
   });
 
-  // describe('part 02', () => {
-  //   test('example input', () => {
-  //     expect(part2FirstSolution(exampleInput)).toBe(2286);
-  //   });
+  describe('part 02', () => {
+    test('example input', () => {
+      expect(part2FirstSolution(exampleInput)).toBe(467835);
+    });
 
-  //   test('real input', () => {
-  //     expect(part2FirstSolution(actualInput)).toBe(55593);
-  //   });
-  // });
+    test('real input', () => {
+      expect(part2FirstSolution(actualInput)).toBe(80179647);
+    });
+  });
 });

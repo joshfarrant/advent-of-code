@@ -1,4 +1,16 @@
-import { clamp, filter, map, nth, pipe, split, sum } from 'rambda';
+import {
+  always,
+  clamp,
+  filter,
+  flatten,
+  map,
+  nth,
+  pipe,
+  reduce,
+  split,
+  sum,
+  tap,
+} from 'rambda';
 
 type LocatedNumber = [Row: number, Column: number, Number: number];
 
@@ -43,24 +55,33 @@ const validateNumber = (lines: string[]) => {
   const clampRow = clamp(0, rowsCount - 1);
   const clampColumn = clamp(0, columnsCount - 1);
 
-  return ([row, column, number]: LocatedNumber): boolean => {
+  return (
+    gearMap: Map<string, number[]>,
+    [row, column, number]: LocatedNumber,
+  ): Map<string, number[]> => {
     const numberLength = number.toString().length;
     const startRow = clampRow(row - 1);
     const endRow = clampRow(row + 1);
     const startColumn = clampColumn(column - 1);
-    const endColumn = clampColumn(column + numberLength + 1);
+    const endColumn = clampColumn(column + numberLength);
 
-    let currentRow = startRow;
-    let allCharacters = '';
+    for (let row = startRow; row <= endRow; row++) {
+      for (let column = startColumn; column <= endColumn; column++) {
+        if (lines[row][column] === '*') {
+          const key = JSON.stringify([row, column]);
+          const gears = gearMap.get(key) ?? [];
 
-    while (currentRow <= endRow) {
-      allCharacters += lines[currentRow].slice(startColumn, endColumn);
-      currentRow++;
+          gearMap.set(key, [...gears, number]);
+        }
+      }
     }
 
-    return /[^0-9\.]/g.test(allCharacters);
+    return gearMap;
   };
 };
+
+const product = (numbers: number[]): number =>
+  numbers.reduce((a, b) => a * b, 1);
 
 const solution = (input: string): number => {
   const lines = split('\n')(input);
@@ -69,8 +90,10 @@ const solution = (input: string): number => {
   return pipe(
     split('\n'),
     locateNumbers,
-    filter(validator),
-    map(x => x[2]),
+    reduce(validator, new Map()),
+    map => Array.from(map.values()),
+    filter(gears => gears.length === 2),
+    map(product),
     sum,
   )(input);
 };
