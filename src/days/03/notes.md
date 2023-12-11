@@ -1,6 +1,6 @@
 This one took a fair bit of thinking, but in the end I settled on what seemed like the most obvious (naive?) solutions.
 
-The solutions to both part are written in a very imperative style. Usually, I tend to write — or at least think — in an imperative style initially, then I go back and refactor to a more functional style once I've got a working solution and a passing test suite to work against. I didn't do that here as I'm not sure of the best way to elegantly refactor these loops — especially the while loops — into a more declarative style. At a high level the code could still be considered functional as all of the functions are pure, but the loops are a bit of a mess and miss out on that declarative magic functional programming is known for.
+The solutions to both parts are written in a very imperative style. Usually, I tend to write — or at least think — in an imperative style initially, then go back and refactor to a more functional style once I've got a working solution and a passing test suite to work against. I didn't do that here as I'm not sure of the best way to elegantly refactor these loops — especially the while loops — into a more declarative style. At a high level the code could still be considered functional as all of the functions are pure, but the loops are a bit of a mess and miss out on that declarative magic functional programming is known for.
 
 One thing to note is that I had an off-by-one error in part 2 which I still don't particularly understand. The below line needed tweaking to get the correct answer:
 
