@@ -1,4 +1,4 @@
-# advent-of-code-2023
+# advent-of-code
 
 To install dependencies:
 
@@ -15,5 +15,5 @@ To run:
 bun test
 
 # Run a specific day
-bun test src/days/01
+bun test src/2024/days/01
 ```
