@@ -1,5 +1,7 @@
+import { fileURLToPath } from 'bun';
+
 export const readFile = async (path: string): Promise<string> => {
-  const fileContents = await Bun.file(path).text();
+  const fileContents = await Bun.file(fileURLToPath(path)).text();
 
   return fileContents.trim();
 };

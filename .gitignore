@@ -1,6 +1,6 @@
 # Project-specific files
 export
-src/days/**/input.txt
+src/**/input.txt
 
 # Based on https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore
 

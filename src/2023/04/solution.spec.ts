@@ -4,13 +4,8 @@ import { readFile } from '@/utils';
 import part1FirstSolution from './solutions/01/solution';
 import part2FirstSolution from './solutions/02/solution';
 
-/* prettier-ignore */
-const actualInput = await import.meta
-  .resolve('./input.txt')
-  .then(readFile);
-const exampleInput = await import.meta
-  .resolve('./example-input.txt')
-  .then(readFile);
+const actualInput = await readFile(import.meta.resolve('./input.txt'));
+const exampleInput = await readFile(import.meta.resolve('./example-input.txt'));
 
 describe('day 04', () => {
   describe('part 01', () => {

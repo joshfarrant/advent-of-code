@@ -5,16 +5,13 @@ import part1FirstSolution from './solutions/01/first';
 import part1FunctionalSolution from './solutions/01/solution';
 import part2FirstSolution from './solutions/02/solution';
 
-/* prettier-ignore */
-const actualInput = await import.meta
-  .resolve('./input.txt')
-  .then(readFile);
-const exampleInput1 = await import.meta
-  .resolve('./example-input-01.txt')
-  .then(readFile);
-const exampleInput2 = await import.meta
-  .resolve('./example-input-02.txt')
-  .then(readFile);
+const actualInput = await readFile(import.meta.resolve('./input.txt'));
+const exampleInput1 = await readFile(
+  import.meta.resolve('./example-input-01.txt'),
+);
+const exampleInput2 = await readFile(
+  import.meta.resolve('./example-input-02.txt'),
+);
 
 describe('day 01', () => {
   describe('part 01', () => {

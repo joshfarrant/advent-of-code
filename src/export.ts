@@ -1,6 +1,9 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
+// Get year from CLI arguments, default to current year
+const year = process.argv[2] || new Date().getFullYear().toString();
+
 const readFile = (filePath: string): Promise<string> => {
   const fullPath = path.resolve(import.meta.dir, filePath);
   return Bun.file(fullPath).text();
@@ -8,7 +11,7 @@ const readFile = (filePath: string): Promise<string> => {
 
 const indexData: { day: number; title: string; file: string }[] = [];
 
-const directories = await fs.readdir('./src/days');
+const directories = await fs.readdir(`./src/${year}`);
 
 const exportDir = './export';
 
@@ -22,7 +25,7 @@ await Promise.all(
     const puzzleNumber = Number(directory);
     let meta;
     try {
-      meta = await import(`./days/${directory}/meta.json`);
+      meta = await import(`./${year}/${directory}/meta.json`);
     } catch (error) {
       return null;
     }
@@ -34,9 +37,9 @@ await Promise.all(
     });
 
     const [notes, part1Solution, part2Solution] = await Promise.all([
-      readFile(`./days/${directory}/notes.md`),
-      readFile(`./days/${directory}/solutions/01/solution.ts`),
-      readFile(`./days/${directory}/solutions/02/solution.ts`),
+      readFile(`./${year}/${directory}/notes.md`),
+      readFile(`./${year}/${directory}/solutions/01/solution.ts`),
+      readFile(`./${year}/${directory}/solutions/02/solution.ts`),
     ]);
 
     const data = {

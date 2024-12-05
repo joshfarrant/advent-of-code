@@ -15,5 +15,5 @@ To run:
 bun test
 
 # Run a specific day
-bun test src/2024/days/01
+bun test src/2024/01
 ```
