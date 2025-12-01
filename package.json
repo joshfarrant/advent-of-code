@@ -12,6 +12,6 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "rambda": "^8.6.0"
+    "rambda": "^9.4.0"
   }
 }
