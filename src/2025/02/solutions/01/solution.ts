@@ -12,23 +12,18 @@ const isInvalidId = (id: string) => {
   return first === second;
 };
 
-const getInvalidIds = (start: string, end: string) => {
-  const invalidIds: number[] = [];
+const sumInvalidIds = (start: string, end: string) => {
+  let total = 0;
 
-  const startNum = Number(start);
-  const endNum = Number(end);
-
-  for (let id = startNum; id <= endNum; id++) {
-    if (isInvalidId(String(id))) invalidIds.push(id);
+  for (let id = Number(start); id <= Number(end); id++) {
+    if (isInvalidId(String(id))) total += id;
   }
 
-  return invalidIds;
+  return total;
 };
-
-const sum = (a: number, b: number) => a + b;
 
 export default (input: string): number => {
   const ranges = parseInput(input);
 
-  return ranges.flatMap(range => getInvalidIds(...range)).reduce(sum);
+  return ranges.reduce((sum, range) => sum + sumInvalidIds(...range), 0);
 };

@@ -28,6 +28,7 @@ const sumInvalidIds = (start: string, end: string) => {
     if (isInvalidId(String(id))) {
       total += id;
     }
+    id++;
   }
 
   return total;
