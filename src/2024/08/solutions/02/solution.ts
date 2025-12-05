@@ -1,8 +1,7 @@
 type Coordinate = [y: number, x: number];
 const getCoordinate =
   (width: number) =>
-  (index: number): Coordinate =>
-    [Math.floor(index / width), index % width];
+  (index: number): Coordinate => [Math.floor(index / width), index % width];
 
 const buildNodeMap = (input: string, width: number) => {
   const map = new Map<string, Coordinate[]>();
